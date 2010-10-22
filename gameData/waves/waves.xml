@@ -1,0 +1,13 @@
+<waves>
+	<wave>
+		<waveName>wave0001.png</waveName>
+		<startTime>1000</startTime>
+		<fps>24</fps>
+	</wave>
+
+	<wave>
+		<waveName>wave0001.png</waveName>
+		<startTime>5000</startTime>
+		<fps>24</fps>
+	</wave>
+</waves>
