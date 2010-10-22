@@ -55,6 +55,8 @@
 			deltaT = currTime - time;
 			time = currTime;
 			
+			//trace(1/deltaT*1000);
+			
 			//update frame number
 			frameNumber++;
 			

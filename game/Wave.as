@@ -2,16 +2,16 @@
 	
 	public class Wave {
 		
-		public var timelineList:Vector.<ScriptedTimeline>;
+		public var enemyList:Vector.<ScriptedEnemy>;
 		public var msStartTime:int;
 		public var msEndTime:int;
 		public var msPerSample:Number;
 
-		public function Wave(_timelineList:Vector.<ScriptedTimeline>, _msStartTime:int, _fps:int){
-			timelineList = _timelineList;
+		public function Wave(_enemyList:Vector.<ScriptedEnemy>, _msStartTime:int, _fps:int){
+			enemyList = _enemyList;
 			msStartTime = _msStartTime;
 			msPerSample = 1000/_fps;
-			msEndTime = _msStartTime + msPerSample * timelineList[0].posX.length;
+			msEndTime = _msStartTime + msPerSample * enemyList[0].scriptedTimeline.posX.length;
 		}
 	}
 }
