@@ -8,21 +8,20 @@
 		public var currentNode:DualNode;		
 
 		public function DualLinkedList() {
-			head = new DualNode();
-			currentNode = head;
-			tail = head;
 		}
 		
 		public function killThisNode():void{
-			var isNotTail:Boolean = node != Tail;
-			var isNotHead:Boolean = node != Head;
+			var isNotTail:Boolean = (currentNode != tail);
+			var isNotHead:Boolean = (currentNode != head);
 			if(isNotTail && isNotHead){
 				currentNode.nextNode.prevNode = currentNode.prevNode;
 				currentNode.prevNode.nextNode = currentNode.nextNode;
 			} else if(isNotHead == false && isNotTail == false){
-				currentNode.object = null;
+				currentNode = null;
+				head = null;
+				tail = null;
 			} else if(isNotTail == false){
-				tail = node.prevNode;
+				tail = currentNode.prevNode;
 				currentNode.prevNode.nextNode = null;
 			} else if(isNotHead == false){
 				head = head.nextNode;
@@ -47,10 +46,13 @@
 		}
 		
 		public function push(node:DualNode):void{
-			if(head.object == null){
-				head.object = node;
+			if(head == null){
+				head = node;
+				currentNode = node;
+				tail = node;
 			} else {
 				tail.nextNode = node;
+				node.prevNode = tail;
 				tail = node;
 			}
 		}

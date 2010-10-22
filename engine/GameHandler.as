@@ -4,6 +4,8 @@
 	import backend.Gesture;
 	import flash.display.BitmapData;
 	import utilities.DualLinkedList;
+	import game.WaveManager;
+	import game.PlayerBehavior;
 	
 	public class GameHandler {
 		
@@ -19,11 +21,22 @@
 		private var playerWeaponList:DualLinkedList;
 		private var enemyWeaponList:DualLinkedList;
 		
+		private var waveManager:WaveManager;
+		
+		private var playerBehavior:PlayerBehavior;
+		
 		
 
 		public function GameHandler(_framebuffer:BitmapData, _time:int) {
 			time = _time;
 			framebuffer = _framebuffer;
+			//waveManager = new WaveManager();
+			
+			playerList = new DualLinkedList();
+			
+			playerBehavior = new PlayerBehavior();
+			playerBehavior.spawnPlayers(playerList,4,time);
+			
 		}
 		
 		public function tick(_time:int, _deltaT:int, _frameNumber:int, _irPoints:Vector.<IRPoint>, _gestures:Vector.<Gesture>):void{
@@ -39,17 +52,17 @@
 			//To-do... collision
 			
 			//update players
-			playerBehavior.updatePlayers(playerList, playerWeaponList, time, irPoints, gestures);
+			//playerBehavior.updatePlayers(playerList, playerWeaponList, time, irPoints, gestures);
 			
 			//update enemy
-			enemyBehavior.updateEnemies(enemyList, enemyWeaponList, time);
+			//enemyBehavior.updateEnemies(enemyList, enemyWeaponList, time);
 				
 			//update bullets
-			bulletBehavior.updateBullets(playerWeaponList, deltaT);
-			bulletBehavior.updateBullets(enemyWeaponList, deltaT);
+			//bulletBehavior.updateBullets(playerWeaponList, deltaT);
+			//bulletBehavior.updateBullets(enemyWeaponList, deltaT);
 			
 			//update wave
-			waveManager.updateWaves(enemyList, time);
+			//waveManager.updateWaves(enemyList, time);
 			
 			//update connnecting beams
 			
