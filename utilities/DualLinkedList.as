@@ -38,7 +38,7 @@
 			currentNode = head;
 		}
 		
-		public function moveToHead():void{
+		public function moveToTail():void{
 			currentNode = tail;
 		}
 		

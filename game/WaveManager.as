@@ -17,6 +17,8 @@
 		public function WaveManager() {			
 			dataXml = "waves.xml";
 			
+			waveList = new Vector.<Wave>(0, false);
+			
 			names = new Vector.<String>(0, false);
 			startTimes = new Vector.<int>(0, false);
 			fps = new Vector.<int>(0, false);
@@ -78,14 +80,14 @@
 		private function loadTimelines(e:Event) {
 			var xmlData =  new XML(e.target.data); 
 			
-			var scriptedTimelines:Vector.<scriptedTimeline> = new Vector.<scriptedTimeline>(0,false);
+			var scriptedTimelines:Vector.<ScriptedTimeline> = new Vector.<ScriptedTimeline>(0,false);
 			var enemyList:XMLList = xmlData.enemy;
 			
 			for each(enemyElement:XML in enemyList) {
 				
 				var xList:XMLList = enemyElement.xloc;
-				var yList:XMLList = enemyElement.xloc;
-				var tList:XMLList = enemyElement.xloc;
+				var yList:XMLList = enemyElement.yloc;
+				var tList:XMLList = enemyElement.types;
 				
 				var xCoords:Vector.<int> = new Vector.<int>(0, false);
 				for each  (var  xElement:XML  in xList)  {
