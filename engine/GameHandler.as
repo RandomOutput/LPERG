@@ -6,6 +6,7 @@
 	import utilities.DualLinkedList;
 	import game.WaveManager;
 	import game.PlayerBehavior;
+	import game.BulletBehavior;
 	
 	public class GameHandler {
 		
@@ -24,6 +25,7 @@
 		private var waveManager:WaveManager;
 		
 		private var playerBehavior:PlayerBehavior;
+		private var bulletBehavior:BulletBehavior;
 		
 		
 
@@ -33,9 +35,12 @@
 			//waveManager = new WaveManager();
 			
 			playerList = new DualLinkedList();
+			playerWeaponList = new DualLinkedList();
 			
 			playerBehavior = new PlayerBehavior();
 			playerBehavior.spawnPlayers(playerList,4,time);
+			
+			bulletBehavior = new BulletBehavior();
 			
 		}
 		
@@ -52,13 +57,13 @@
 			//To-do... collision
 			
 			//update players
-			//playerBehavior.updatePlayers(playerList, playerWeaponList, time, irPoints, gestures);
+			playerBehavior.updatePlayers(playerList, playerWeaponList, time, irPoints, gestures);
 			
 			//update enemy
 			//enemyBehavior.updateEnemies(enemyList, enemyWeaponList, time);
 				
 			//update bullets
-			//bulletBehavior.updateBullets(playerWeaponList, deltaT);
+			bulletBehavior.updateBullets(playerWeaponList, deltaT);
 			//bulletBehavior.updateBullets(enemyWeaponList, deltaT);
 			
 			//update wave

@@ -1,12 +1,12 @@
 <waves>
 	<wave>
-		<waveName>wave0001.png</waveName>
+		<waveName>wave_001.xml</waveName>
 		<startTime>1000</startTime>
 		<fps>24</fps>
 	</wave>
 
 	<wave>
-		<waveName>wave0001.png</waveName>
+		<waveName>wave_002.xml</waveName>
 		<startTime>5000</startTime>
 		<fps>24</fps>
 	</wave>

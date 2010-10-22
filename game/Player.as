@@ -10,7 +10,5 @@
 			msShotDelay = _msShotDelay;
 			msLastShot = _msLastShot;
 		}
-
 	}
-	
 }
